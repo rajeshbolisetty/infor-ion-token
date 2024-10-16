@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-async function getIonToken(clientId, secret, username, password, url) {
+async function fetchAccessToken(url, clientId, secret, username, password) {
   try {
     const { data } = await axios.post(
       url,
@@ -24,7 +24,7 @@ async function getIonToken(clientId, secret, username, password, url) {
   }
 }
 
-async function refreshToken(url, clientId, secret, refreshToken) {
+async function fetchRefreshToken(url, clientId, secret, refreshToken) {
   try {
     const { data } = await axios.post(
       url,
@@ -48,6 +48,6 @@ async function refreshToken(url, clientId, secret, refreshToken) {
 }
 
 module.exports = {
-  getIonToken,
-  refreshToken,
+  fetchAccessToken,
+  fetchRefreshToken,
 };
